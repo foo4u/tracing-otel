@@ -123,7 +123,7 @@ impl<B> OnResponse<B> for ServerOnResponse {
             tracing::field::debug(OpenTelemetryStatusCode::from(response)),
         );
         span.record("status", status(response));
-        span.record("http.status_code", &response.status().as_u16());
+        span.record("http.status_code", response.status().as_u16());
 
         tracing::event!(
             Level::INFO,
