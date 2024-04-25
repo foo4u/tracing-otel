@@ -7,5 +7,7 @@ edition = "2021"
 
 [dependencies]
 http = "1"
+opentelemetry = "0.22.0"
 tower-http = { version = "0.5", features = ["tracing", "trace"] }
 tracing = "0.1"
+tracing-opentelemetry = "0.23.0"
