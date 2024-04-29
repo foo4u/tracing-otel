@@ -1,3 +1,4 @@
+mod http;
 pub mod server_make_span;
 pub mod server_on_response;
 
