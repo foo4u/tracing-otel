@@ -111,7 +111,7 @@ impl<B> MakeSpan<B> for MakeServerSpan {
                     component = %self.component,
                     method = %request.method(),
                     uri = %request.uri(),
-                    version = ?request.version(),
+                    http.protocol = ?request.version(),
                     headers = tracing::field::Empty,
                     otel.kind = "server",
                     otel.status_code = tracing::field::Empty,
@@ -165,7 +165,7 @@ impl PropagationContext {
 
 impl Extractor for PropagationContext {
     fn get(&self, key: &str) -> Option<&str> {
-        tracing::warn!("Extracting {key}");
+        tracing::debug!("Extracting {key}");
         self.0.get(key).and_then(|v| v.to_str().ok())
     }
 
